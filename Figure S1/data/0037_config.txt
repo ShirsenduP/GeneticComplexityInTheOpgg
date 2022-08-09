@@ -1,0 +1,12 @@
+social_norm Defector
+t 200000
+c 1
+r 3
+sigma 1
+n 5
+N 100
+epsilon1 0.1
+epsilon2 1.0
+omega 0.9090909090909091
+p 10
+zeta 0.1
