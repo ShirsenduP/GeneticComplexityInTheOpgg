@@ -32,7 +32,7 @@ def plot():
         frameon=False,
     )
 
-    plt.savefig("overall.png")
+    plt.savefig("overall.jpeg", dpi=300)
 
 
 if __name__ == "__main__":

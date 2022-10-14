@@ -31,7 +31,7 @@ def plot():
     g.fig.subplots_adjust(top=0.9)
     g.fig.suptitle("Fixed population size $N=100$")
 
-    plt.savefig("n_v_p_Nconstant.png")
+    plt.savefig("n_v_p_Nconstant.jpeg", dpi=300)
 
 
 if __name__ == "__main__":

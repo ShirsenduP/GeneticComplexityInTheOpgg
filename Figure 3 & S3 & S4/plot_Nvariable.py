@@ -31,7 +31,7 @@ def plot():
     g.fig.suptitle("Proportional population size $N=20n$")
     g.fig.subplots_adjust(top=0.9)
 
-    plt.savefig("n_v_p_Nvariable.png")
+    plt.savefig("n_v_p_Nvariable.jpeg", dpi=300)
 
 
 if __name__ == "__main__":

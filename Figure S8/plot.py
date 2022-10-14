@@ -32,7 +32,7 @@ def main():
     for ax in g.axes[0]:
         ax.axvline(x=0.1, alpha=0.5, color="gray")
 
-    plt.savefig("zeta.png")
+    plt.savefig("zeta.jpeg", dpi=300)
 
 
 if __name__ == "__main__":

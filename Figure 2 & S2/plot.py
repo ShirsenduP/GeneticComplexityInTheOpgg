@@ -17,7 +17,7 @@ def make_plot_evens():
         tmp = df
         if plot_only_evens:
             tmp = df[df["p"] % 2 == 0]
-        print(tmp)
+            tmp = df.query("p == 1 or p % 2 == 0")
 
         g = sns.relplot(
             data=tmp,
@@ -31,17 +31,15 @@ def make_plot_evens():
             aspect=1.5,
         )
         g.set_xlabels("$p$")
-        g.set(
-            xticks=[1, 3, 5, 7, 9, 11, 13, 15],
-        )
+        g.set(xticks=[2, 4, 6, 8, 10, 12, 14])
 
         for ax in g.axes.flatten():
             d = ax.get_title().split()[-1]
             ax.set_title("Anti-" + d)
         if plot_only_evens:
-            plt.savefig("p_evens.png")
+            plt.savefig("p_evens.jpeg", dpi=300)
         else:
-            plt.savefig("p_all.png")
+            plt.savefig("p_all.jpeg", dpi=300)
 
 
 def make_single_plot():
@@ -72,9 +70,9 @@ def make_single_plot():
     g.set_title("Anti-Defector")
 
     plt.savefig(
-        r"C:\Users\spodd\project_genetic-opgar-experiments\C_p\figures\p_ad_only.png"
+        r"C:\Users\spodd\project_genetic-opgar-experiments\C_p\figures\p_ad_only.eps"
     )
-    plt.savefig(r"C:\Users\spodd\Dropbox\Gopgar\Latex\figs\C_p\p_ad_only.pdf")
+    plt.savefig(r"C:\Users\spodd\Dropbox\Gopgar\Latex\figs\C_p\p_ad_only.eps")
 
 
 if __name__ == "__main__":

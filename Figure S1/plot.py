@@ -79,7 +79,7 @@ def main():
         lines, labels, ncol=3, loc="upper center", bbox_to_anchor=(0.5, -0.7)
     )
 
-    plt.savefig("example_simulations.png")
+    plt.savefig("example_simulations.jpeg", dpi=300)
 
 
 if __name__ == "__main__":

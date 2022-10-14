@@ -126,10 +126,10 @@ def plot_gini_index():
     ####################################################################################
     # SOCIAL NORM LEGEND
     legend_norms = [
-        Patch([0], [0], color="tab:blue", label="Defector"),
-        Patch([0], [0], color="tab:orange", label="Loner"),
-        Patch([0], [0], color="tab:green", label="Neither"),
-        Patch([0], [0], color="tab:red", label="Both"),
+        Patch([0], [0], color="tab:blue", label="Defector (AD)"),
+        Patch([0], [0], color="tab:orange", label="Loner (AL)"),
+        Patch([0], [0], color="tab:green", label="Neither (AN)"),
+        Patch([0], [0], color="tab:red", label="Both (AB)"),
     ]
     g.legend(
         handles=legend_norms,
@@ -147,7 +147,7 @@ def plot_gini_index():
     sns.set_style("darkgrid")
     sns.set_context("talk")
 
-    plt.savefig("allele_and_gini.png")
+    plt.savefig("allele_and_gini.jpeg", dpi=300)
 
 
 if __name__ == "__main__":

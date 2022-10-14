@@ -21,7 +21,7 @@ def main(df):
     for ax in g.axes[0]:
         ax.axvline(x=1, color="grey", alpha=0.5)
 
-    plt.savefig("c.png")
+    plt.savefig("c.jpeg", dpi=300)
 
 
 def group():

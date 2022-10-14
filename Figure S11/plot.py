@@ -33,7 +33,7 @@ def plot():
     for ax in g.axes[0]:
         ax.axvline(x=0, color="gray", alpha=0.5)
 
-    plt.savefig("beta.png")
+    plt.savefig("beta.jpeg", dpi=300)
 
 
 if __name__ == "__main__":

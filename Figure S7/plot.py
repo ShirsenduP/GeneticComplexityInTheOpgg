@@ -25,7 +25,7 @@ def plot():
     for ax in g.axes[0]:
         ax.axvline(x=1, color="gray", alpha=0.5)
 
-    plt.savefig("sigma.png")
+    plt.savefig("sigma.jpeg", dpi=300)
 
 
 if __name__ == "__main__":
