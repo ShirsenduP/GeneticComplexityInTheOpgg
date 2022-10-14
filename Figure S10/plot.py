@@ -2,38 +2,35 @@ import matplotlib.pyplot as plt
 import pandas as pd
 import seaborn as sns
 
-RESULTS_FOR_P2 = "actions_p2.csv"
-RESULTS_FOR_P8 = "actions_p8.csv"
 
+def main():
+    df_p2 = pd.read_csv("actions_p2.csv", header=0, index_col=0)
+    df_p8 = pd.read_csv("actions_p8.csv", header=0, index_col=0)
 
-def plot():
-    df2 = pd.read_csv(RESULTS_FOR_P2, index_col=0, header=0)
-    df8 = pd.read_csv(RESULTS_FOR_P8, index_col=0, header=0)
-    df = pd.concat([df2, df8])
-    df = df.drop(["D", "L"], axis=1)
+    df = pd.concat([df_p2, df_p8])
+
+    df = df[["C", "social_norm", "omega", "p"]]
     df = df.melt(
-        id_vars=["social_norm", "alpha", "p"],
+        id_vars=["social_norm", "omega", "p"],
+        var_name="Action",
         value_vars="C",
-        var_name="action",
-        value_name="proportion",
+        value_name="Proportion",
     )
 
     sns.set_style("darkgrid")
-    sns.set_context("poster", font_scale=0.7)
+    sns.set_theme("talk")
 
     g = sns.relplot(
-        data=df, x="alpha", y="proportion", hue="social_norm", kind="line", col="p"
+        data=df, x="omega", hue="social_norm", y="Proportion", col="p", kind="line"
     )
-    g.set_titles("$p={col_name}$")
-    g.set_axis_labels(r"Implementation Error $\alpha$", "Frequency of Cooperation")
-    g._legend.set_title("Social Norm")
+    g._legend.set(title="Social Norm")
+    g.set(xlabel="$\Omega$", ylabel="Frequency of Cooperation")
 
     for ax in g.axes[0]:
-        ax.axvline(x=0, color="gray", alpha=0.5)
+        ax.axvline(x=10 / 11, color="gray", alpha=0.5)
 
-    plt.savefig("alpha.jpeg", dpi=300)
+    plt.savefig("omega.jpeg", dpi=300)
 
 
 if __name__ == "__main__":
-
-    plot()
+    main()

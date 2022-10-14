@@ -12,7 +12,7 @@ def plot():
     df = pd.concat([df2, df8])
     df = df.drop(["D", "L"], axis=1)
     df = df.melt(
-        id_vars=["social_norm", "beta", "p"],
+        id_vars=["social_norm", "alpha", "p"],
         value_vars="C",
         var_name="action",
         value_name="proportion",
@@ -22,18 +22,16 @@ def plot():
     sns.set_context("poster", font_scale=0.7)
 
     g = sns.relplot(
-        data=df, x="beta", y="proportion", hue="social_norm", kind="line", col="p"
+        data=df, x="alpha", y="proportion", hue="social_norm", kind="line", col="p"
     )
     g.set_titles("$p={col_name}$")
-    g.set_axis_labels(
-        r"Reputation Assignment Error $\beta$", "Frequency of Cooperation"
-    )
+    g.set_axis_labels(r"Implementation Error $\alpha$", "Frequency of Cooperation")
     g._legend.set_title("Social Norm")
 
     for ax in g.axes[0]:
         ax.axvline(x=0, color="gray", alpha=0.5)
 
-    plt.savefig("beta.jpeg", dpi=300)
+    plt.savefig("alpha.jpeg", dpi=300)
 
 
 if __name__ == "__main__":

@@ -9,9 +9,9 @@ def main():
 
     df = pd.concat([df_p2, df_p8])
 
-    df = df[["C", "social_norm", "omega", "p"]]
+    df = df[["C", "social_norm", "zeta", "p"]]
     df = df.melt(
-        id_vars=["social_norm", "omega", "p"],
+        id_vars=["social_norm", "p", "zeta"],
         var_name="Action",
         value_vars="C",
         value_name="Proportion",
@@ -21,15 +21,18 @@ def main():
     sns.set_theme("talk")
 
     g = sns.relplot(
-        data=df, x="omega", hue="social_norm", y="Proportion", col="p", kind="line"
+        data=df, x="zeta", hue="social_norm", y="Proportion", col="p", kind="line"
     )
     g._legend.set(title="Social Norm")
-    g.set(xlabel="$\Omega$", ylabel="Frequency of Cooperation")
+    g.set(
+        xlabel="Proportion of population replaced $\zeta$",
+        ylabel="Frequency of Cooperation",
+    )
 
     for ax in g.axes[0]:
-        ax.axvline(x=10 / 11, color="gray", alpha=0.5)
+        ax.axvline(x=0.1, alpha=0.5, color="gray")
 
-    plt.savefig("omega.jpeg", dpi=300)
+    plt.savefig("zeta.jpeg", dpi=300)
 
 
 if __name__ == "__main__":

@@ -1,3 +1,3 @@
-N_omega
+O_zeta
 
-Looking at the probability of further OPGG rounds within the same timestep and how it affects cooperation levels
+Looking at the proportion of the population that is killed off each timestep during evolution and its effect on cooperation levels.

@@ -1,3 +1,3 @@
-I_mutation_intensity
+H_mutationfrequency
 
-To look at the extent to which a player must be mutated to allow high levels of cooperation.
+Vary the mutation rate of agents in the population from 0 to 1

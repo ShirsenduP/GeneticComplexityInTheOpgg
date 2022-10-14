@@ -18,8 +18,8 @@ if __name__ == "__main__":
         description="Launch a simulation with a single parameter name and value."
     )
     parser.add_argument("index", help="Job index", type=int)
-    parser.add_argument("p", help="Behavioural strategy complexity", type=int)
-    parser.add_argument("epsilon2", help="Mutation intensity or epsilon2", type=float)
+    parser.add_argument("p", help="Behavioural strategy complexity.", type=int)
+    parser.add_argument("epsilon1", help="Variable value", type=float)
     parser.add_argument("norm", help="Social norm", type=str)
     args = parser.parse_args()
 
@@ -33,11 +33,11 @@ if __name__ == "__main__":
         sigma=1,
         social_norm=args.norm.strip(),
         omega=10 / 11,
-        epsilon1=0.1,
-        epsilon2=args.epsilon2,
+        epsilon1=args.epsilon1,
+        epsilon2=1.0,
         zeta=0.1,
     )
 
     P = Population(config=config)
     P.modify(batch_size=50000, job_id=args.index)
-    P.simulate(nochromosomes=True, nofitness=True, nodistribution=True)
+    P.simulate(nodistribution=True, nochromosomes=True, nofitness=True)

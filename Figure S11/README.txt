@@ -1,2 +1,2 @@
-Q_beta
-Effect of reputation assignment error on GOPGAR model.
+P_alpha
+Effect of implementation error on GOPGAR model.

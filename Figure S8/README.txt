@@ -1,3 +1,3 @@
-O_zeta
+K_sigma
 
-Looking at the proportion of the population that is killed off each timestep during evolution and its effect on cooperation levels.
+Looking at the effect of the loner's payoff on cooperation levels

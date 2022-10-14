@@ -18,9 +18,9 @@ if __name__ == "__main__":
         description="Launch a simulation with a single parameter name and value."
     )
     parser.add_argument("index", help="Job index", type=int)
-    parser.add_argument("p", help="The behavioural strategy complexity", type=int)
-    parser.add_argument("r", help="The group synergy factor.", type=float)
-    parser.add_argument("norm", help="The chosen social norm", type=str)
+    parser.add_argument("p", help="Strategy complexity", type=int)
+    parser.add_argument("sigma", help="Loner's payoff/sigma.", type=float)
+    parser.add_argument("norm", help="Population social norm", type=str)
     args = parser.parse_args()
 
     config = Configuration(
@@ -29,8 +29,8 @@ if __name__ == "__main__":
         t=2e5,
         p=args.p,
         c=1,
-        r=args.r,
-        sigma=1,
+        r=3,
+        sigma=args.sigma,
         social_norm=args.norm.strip(),
         omega=10 / 11,
         epsilon1=0.1,
@@ -40,4 +40,4 @@ if __name__ == "__main__":
 
     P = Population(config=config)
     P.modify(batch_size=50000, job_id=args.index)
-    P.simulate(nodistribution=True, nochromosomes=True, nofitness=True)
+    P.simulate(nofitness=True, nodistribution=True, nochromosomes=True)

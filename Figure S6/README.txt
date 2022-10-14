@@ -1,3 +1,3 @@
-J_r
+L_c
 
-Looking at the effect of the OPGG multiplier on cooperation levels.
+Looking at the effect of the cost of cooperation on cooperation levels

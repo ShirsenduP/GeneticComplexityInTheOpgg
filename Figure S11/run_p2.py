@@ -1,5 +1,5 @@
 """
-Standalone script to run a basic setup of the GOPGAR simulations with all default values.
+Standalone script to run a basic setup of the GOPGAR simulations.
 """
 
 from gopgar import Configuration, Population
@@ -7,11 +7,13 @@ from argparse import ArgumentParser
 
 if __name__ == "__main__":
     parser = ArgumentParser(
-        description="Launch a simulation with a single parameter name and value."
+        description="Launch a simulation with a single parameter and value."
     )
     parser.add_argument("index", help="Job index", type=int)
-    parser.add_argument("beta", help="Reputation assignment error.", type=float)
-    parser.add_argument("norm", help="Social norm.", type=str)
+    parser.add_argument(
+        "alpha", help="Value of alpha. Must be between 0 and 1.", type=float
+    )
+    parser.add_argument("norm", help="Name of social norm.", type=str)
     args = parser.parse_args()
 
     config = Configuration(
@@ -27,12 +29,11 @@ if __name__ == "__main__":
         epsilon1=0.1,
         epsilon2=1.0,
         zeta=0.1,
-        alpha=0,
-        beta=args.beta
+        alpha=args.alpha,
     )
 
     config.export(args.index)
-    
+
     print(config, end="\n\n")
     P = Population(config=config)
     P.modify(use_tqdm_bar=True, batch_size=50000, job_id=args.index)

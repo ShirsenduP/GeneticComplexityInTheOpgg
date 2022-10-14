@@ -1,3 +1,3 @@
-K_sigma
+J_r
 
-Looking at the effect of the loner's payoff on cooperation levels
+Looking at the effect of the OPGG multiplier on cooperation levels.
