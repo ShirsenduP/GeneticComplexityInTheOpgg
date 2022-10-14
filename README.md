@@ -4,7 +4,7 @@
 
 s.podder@live.co.uk
 
-This repository contains all of the code and data for each of the figures in the main paper as well as the supplementary materials. It consists of a number of `Figure x` directories as well as a `scripts` directory.
+This repository contains all of the code and data for each of the figures in the main paper as well as the supplementary materials. It consists of a number of `Figure x` directories as well as a `scripts` directory. The source code for the agent-based model is found in `Genetic-Evolution-in-OPGG`. 
 
 The High Performance Computing system used (Myriad@UCL), outputs data in a potentially different format to other systems. Since Myriad uses a custom format, dissimilar to other HPC systems, this repository does not include the scripts to launch these simulations on a cluster. While the scripts given make it possible for the user to run single one-off simulations on their local machines, it is up to them to write their own submission scripts to any clusters. 
 
